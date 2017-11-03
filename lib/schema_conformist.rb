@@ -1,3 +1,5 @@
-module SchemaConformist
-  # Your code goes here...
-end
+require 'committee'
+require 'committee/rails'
+require 'schema_conformist/open_api_2'
+require 'schema_conformist/assert_schema_conform_available'
+require 'action_dispatch/integration'
