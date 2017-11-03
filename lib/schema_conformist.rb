@@ -1,0 +1,3 @@
+module SchemaConformist
+  # Your code goes here...
+end
