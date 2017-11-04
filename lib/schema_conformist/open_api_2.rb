@@ -12,7 +12,7 @@ module SchemaConformist
     end
 
     def schema_path
-      Rails.root.join('public', 'swagger.json')
+      Rails.application.config.schema_conformist.schema_path
     end
   end
 end
