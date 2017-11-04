@@ -11,5 +11,9 @@ module SchemaConformist
     initializer 'config.schema_conformist.ignored_api_paths' do
       config.schema_conformist.ignored_api_paths = []
     end
+
+    initializer 'config.schema_conformist.driver' do
+      config.schema_conformist.driver = :open_api_2
+    end
   end
 end

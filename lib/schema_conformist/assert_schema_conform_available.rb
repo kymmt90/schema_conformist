@@ -1,6 +1,6 @@
 module SchemaConformist
   module AssertSchemaConformAvailable
-    include SchemaConformist::OpenAPI2
+    include SchemaConformist::Driver
 
     def process(*args)
       super *args
