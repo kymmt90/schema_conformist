@@ -26,4 +26,9 @@ class ProductsControllerTest < ActionDispatch::IntegrationTest
       delete product_url(products(:one)), as: :json
     end
   end
+
+  test "GET /private" do
+    Rails.application.config.schema_conformist.ignored_api_paths << /private/
+    get private_path
+  end
 end
