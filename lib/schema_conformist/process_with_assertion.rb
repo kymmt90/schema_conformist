@@ -1,5 +1,5 @@
 module SchemaConformist
-  module AssertSchemaConformAvailable
+  module ProcessWithAssertion
     include SchemaConformist::Driver
 
     def process(*args)

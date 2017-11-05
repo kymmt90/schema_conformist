@@ -1,7 +1,7 @@
 module ActionDispatch
   module Integration
     class Session
-      prepend SchemaConformist::AssertSchemaConformAvailable
+      prepend SchemaConformist::ProcessWithAssertion
     end
   end
 end
