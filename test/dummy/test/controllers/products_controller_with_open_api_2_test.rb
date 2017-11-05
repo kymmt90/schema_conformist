@@ -1,8 +1,10 @@
 require 'test_helper'
 
 class ProductsControllerTest < ActionDispatch::IntegrationTest
-  setup do
-    Rails.application.config.schema_conformist.driver = :open_api_2
+  teardown do
+    Rails.application.config.schema_conformist.driver = :hyper_schema
+    Rails.application.config.schema_conformist.ignored_api_paths = []
+    Rails.application.config.schema_conformist.schema_path = nil
   end
 
   test 'GET /products' do
