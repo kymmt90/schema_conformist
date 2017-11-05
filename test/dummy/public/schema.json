@@ -1,0 +1,127 @@
+{
+  "$schema": "http://json-schema.org/draft-04/hyper-schema",
+  "type": "object",
+  "properties": {
+    "product": {
+      "$ref": "#/definitions/product"
+    }
+  },
+  "definitions": {
+    "product": {
+      "type": "object",
+      "definitions": {
+        "id": {
+          "readOnly": true,
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "price": {
+          "type": "integer"
+        },
+        "stock_count": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "created": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "updated_at": {
+          "format": "date-time",
+          "type": "string"
+        }
+      },
+      "links": [
+        {
+          "description": "list products",
+          "href": "/products",
+          "method": "GET",
+          "rel": "instances",
+          "targetSchema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/product"
+            }
+          }
+        },
+        {
+          "description": "get a product",
+          "href": "/products/{(%23%2Fdefinitions%2Fproduct%2Fdefinitions%2Fid)}",
+          "method": "GET",
+          "rel": "self",
+          "targetSchema": {
+            "$ref": "#/definitions/product"
+          }
+        },
+        {
+          "description": "create a product",
+          "href": "/products",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "properties": {
+              "name": {
+                "$ref": "#/definitions/product/definitions/name"
+              },
+              "price": {
+                "$ref": "#/definitions/product/definitions/price"
+              },
+              "stock_count": {
+                "$ref": "#/definitions/product/definitions/stock_count"
+              }
+            }
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/product"
+          }
+        },
+        {
+          "description": "update a product",
+          "href": "/products/{(%23%2Fdefinitions%2Fproduct%2Fdefinitions%2Fname)}",
+          "method": "PUT",
+          "rel": "update",
+          "schema": {
+            "properties": {
+              "name": {
+                "$ref": "#/definitions/product/definitions/name"
+              },
+              "price": {
+                "$ref": "#/definitions/product/definitions/price"
+              },
+              "stock_count": {
+                "$ref": "#/definitions/product/definitions/stock_count"
+              }
+            }
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/product"
+          }
+        },
+        {
+          "description": "delete a product",
+          "href": "/products/{(%23%2Fdefinitions%2Fproduct%2Fdefinitions%2Fname)}",
+          "method": "DELETE",
+          "rel": "destroy"
+        },
+        {
+          "description": "private api",
+          "href": "/private",
+          "method": "GET",
+          "rel": "private",
+          "targetSchema": {
+            "$ref": "#/definitions/product"
+          }
+        }
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/product/definitions/id"
+        }
+      }
+    }
+  }
+}

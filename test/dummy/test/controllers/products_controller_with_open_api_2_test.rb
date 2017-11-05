@@ -1,6 +1,10 @@
 require 'test_helper'
 
 class ProductsControllerTest < ActionDispatch::IntegrationTest
+  setup do
+    Rails.application.config.schema_conformist.driver = :open_api_2
+  end
+
   test 'GET /products' do
     get products_url, as: :json
   end
