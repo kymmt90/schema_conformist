@@ -1,5 +1,7 @@
 # SchemaConformist
 
+[![Gem Version](https://badge.fury.io/rb/schema_conformist.svg)](https://badge.fury.io/rb/schema_conformist)
+
 > An automatic JSON response validator for testing in Rails
 
 SchemaConformist is an automatic JSON response validator for your API testing in Rails.
