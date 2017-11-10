@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class ProductsControllerWithHyperSchemaTest < ActionDispatch::IntegrationTest
-  teardown do
+  setup do
     Rails.application.config.schema_conformist.driver = :hyper_schema
     Rails.application.config.schema_conformist.ignored_api_paths = []
     Rails.application.config.schema_conformist.schema_path = nil
@@ -36,5 +36,11 @@ class ProductsControllerWithHyperSchemaTest < ActionDispatch::IntegrationTest
   test "GET /private" do
     Rails.application.config.schema_conformist.ignored_api_paths << /private/
     get private_path
+  end
+
+  test "GET /private without ignored API paths" do
+    assert_raises Committee::InvalidResponse do
+      get private_path
+    end
   end
 end
