@@ -106,15 +106,6 @@
           "href": "/products/{(%23%2Fdefinitions%2Fproduct%2Fdefinitions%2Fname)}",
           "method": "DELETE",
           "rel": "destroy"
-        },
-        {
-          "description": "private api",
-          "href": "/private",
-          "method": "GET",
-          "rel": "private",
-          "targetSchema": {
-            "$ref": "#/definitions/product"
-          }
         }
       ],
       "properties": {
