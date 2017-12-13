@@ -3,11 +3,15 @@ module SchemaConformist
     include Committee::Rails::Test::Methods
 
     def committee_schema
-      @committee_schema ||=
-        begin
-          schema_hash = JSON.parse(File.read(schema_path))
-          driver.parse(schema_hash)
-        end
+      @committee_schema ||= driver.parse(schema_hash)
+    end
+
+    def schema_hash(schema_data = File.read(schema_path))
+      if %w(.yaml .yml).include?(File.extname(schema_path))
+        YAML.safe_load(schema_data)
+      else
+        JSON.parse(schema_data)
+      end
     end
 
     def schema_path

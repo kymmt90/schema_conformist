@@ -5,7 +5,7 @@ class SchemaConformist::Driver::Test < ActiveSupport::TestCase
     include SchemaConformist::Driver
   end
 
-  teardown do
+  setup do
     Rails.application.config.schema_conformist.driver = :hyper_schema
     Rails.application.config.schema_conformist.ignored_api_paths = []
     Rails.application.config.schema_conformist.schema_path = nil
@@ -50,5 +50,30 @@ class SchemaConformist::Driver::Test < ActiveSupport::TestCase
     assert_raises SchemaConformist::Error do
       DriverTestClass.new.schema_path
     end
+  end
+
+  test '#schema_hash with json format argument returns correct hash data' do
+    Rails.application.config.schema_conformist.schema_path = Rails.root.join('public', 'swagger.json')
+    json_data = <<~JSON
+    {
+      "swagger": "2.0",
+      "info": {
+        "description": "This is a dummy app"
+      }
+    }
+    JSON
+    expected_hash = {'swagger' => '2.0', 'info' => { 'description' => 'This is a dummy app' }}
+    assert_equal expected_hash, DriverTestClass.new.schema_hash(json_data)
+  end
+
+  test '#schema_hash with yaml format argument returns correct hash data' do
+    Rails.application.config.schema_conformist.schema_path = Rails.root.join('public', 'swagger.yaml')
+    yaml_data = <<~YAML
+    swagger: "2.0"
+    info:
+      description: "This is a dummy app"
+    YAML
+    expected_hash = {'swagger' => '2.0', 'info' => { 'description' => 'This is a dummy app' }}
+    assert_equal expected_hash, DriverTestClass.new.schema_hash(yaml_data)
   end
 end

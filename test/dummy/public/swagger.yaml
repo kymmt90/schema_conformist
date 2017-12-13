@@ -1,0 +1,99 @@
+---
+swagger: '2.0'
+info:
+  description: This is a dummy app
+  version: 1.0.0
+  title: Dummy app
+host: petstore.swagger.io
+schemes:
+- http
+consumes:
+- application/json
+produces:
+- application/json
+paths:
+  "/products":
+    get:
+      description: ''
+      responses:
+        '200':
+          description: ''
+          schema:
+            type: array
+            items:
+              "$ref": "#/definitions/Product"
+    post:
+      description: ''
+      parameters:
+      - in: body
+        name: body
+        description: ''
+        required: true
+        schema:
+          "$ref": "#/definitions/Product"
+      responses:
+        '201':
+          description: ''
+          schema:
+            "$ref": "#/definitions/Product"
+  "/products/{productId}":
+    get:
+      description: ''
+      parameters:
+      - name: productId
+        in: path
+        description: ''
+        required: true
+        type: integer
+      responses:
+        '200':
+          description: ''
+          schema:
+            "$ref": "#/definitions/Product"
+    put:
+      description: ''
+      parameters:
+      - name: productId
+        in: path
+        description: ''
+        required: true
+        type: integer
+      - in: body
+        name: body
+        description: ''
+        required: true
+        schema:
+          "$ref": "#/definitions/Product"
+      responses:
+        '200':
+          description: ''
+          schema:
+            "$ref": "#/definitions/Product"
+    delete:
+      description: ''
+      parameters:
+      - name: productId
+        in: path
+        description: ''
+        required: true
+        type: integer
+      responses:
+        '204':
+          description: ''
+definitions:
+  Product:
+    type: object
+    required:
+    - name
+    - price
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+      price:
+        type: integer
+      stock_count:
+        type:
+        - integer
+        - 'null'
