@@ -5,7 +5,7 @@ class SchemaConformist::Driver::Test < ActiveSupport::TestCase
     include SchemaConformist::Driver
   end
 
-  teardown do
+  setup do
     Rails.application.config.schema_conformist.driver = :hyper_schema
     Rails.application.config.schema_conformist.ignored_api_paths = []
     Rails.application.config.schema_conformist.schema_path = nil
