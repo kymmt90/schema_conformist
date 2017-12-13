@@ -39,7 +39,7 @@ Configuration options are following:
 
 - `schema_conformist.driver`
   - `:hyper_schema`: Use JSON Hyper Schema as schema format
-  - `:open_api_2`: Use OpenAPI 2 as schema format
+  - `:open_api_2`: Use OpenAPI 2 as schema format (both JSON and YAML are available as schema files)
 - `schema_conformist.ignored_api_paths`
   - The array of API paths not to validate. Each path can be described in regular expression.
 - `schema_conformist.schema_path`
@@ -50,7 +50,7 @@ Example:
 ```ruby
 Rails.application.config.schema_conformist.driver = :open_api_2
 Rails.application.config.schema_conformist.ignored_api_paths << /private/
-Rails.application.config.schema_conformist.schema_path = Rails.root.join('doc', 'swagger.json')
+Rails.application.config.schema_conformist.schema_path = Rails.root.join('doc', 'swagger.yaml')
 ```
 
 ## Contributing
