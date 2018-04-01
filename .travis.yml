@@ -1,7 +1,9 @@
 language: ruby
 rvm:
-  - 2.4.3
-  - 2.5.0
+  - 2.4.4
+  - 2.5.1
+before_install:
+  - gem install bundler
 script:
   - (cd test/dummy && bin/rake db:create db:migrate)
   - bin/test
