@@ -1,9 +1,13 @@
 module SchemaConformist
   module Driver
-    include Committee::Rails::Test::Methods
+    include Committee::Test::Methods
 
     def committee_schema
       @committee_schema ||= driver.parse(schema_hash)
+    end
+
+    def committee_options
+      { schema: committee_schema }
     end
 
     def schema_hash(schema_data = File.read(schema_path))
@@ -42,6 +46,14 @@ module SchemaConformist
 
     def driver_name
       Rails.application.config.schema_conformist.driver
+    end
+
+    def request_object
+      request
+    end
+
+    def response_data
+      [response.status, response.headers, response.body]
     end
   end
 end
