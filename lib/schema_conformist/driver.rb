@@ -27,6 +27,8 @@ module SchemaConformist
           Rails.root.join('public', 'schema.json')
         when :open_api_2
           Rails.root.join('public', 'swagger.json')
+        when :open_api_3
+          Rails.root.join('public', 'openapi.json')
         else
           raise SchemaConformist::Error.new("#{driver_name} is unknown driver")
         end

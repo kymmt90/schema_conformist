@@ -43,6 +43,11 @@ class SchemaConformist::Driver::Test < ActiveSupport::TestCase
     assert_equal Rails.root.join('public', 'swagger.json'), DriverTestClass.new.schema_path
   end
 
+  test '#schema_path returns default OpenAPI 3 schema path when not specified' do
+    Rails.application.config.schema_conformist.driver = :open_api_3
+    assert_equal Rails.root.join('public', 'openapi.json'), DriverTestClass.new.schema_path
+  end
+
   test '#schema_path returns the specified schema path when specified' do
     Rails.application.config.schema_conformist.driver = :hyper_schema
     path = Rails.root.join('public', 'schema2.json')
