@@ -6,6 +6,10 @@ module SchemaConformist
       @committee_schema ||= driver.parse(schema_hash)
     end
 
+    def committee_options
+      { schema: committee_schema }
+    end
+
     def schema_hash(schema_data = File.read(schema_path))
       if %w(.yaml .yml).include?(File.extname(schema_path))
         YAML.safe_load(schema_data)
