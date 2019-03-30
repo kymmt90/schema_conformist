@@ -39,6 +39,8 @@ module SchemaConformist
         Committee::Drivers::HyperSchema.new
       when :open_api_2
         Committee::Drivers::OpenAPI2.new
+      when :open_api_3
+        Committee::Drivers::OpenAPI3.new
       else
         raise SchemaConformist::Error.new("#{driver_name} is unknown driver")
       end

@@ -21,6 +21,11 @@ class SchemaConformist::Driver::Test < ActiveSupport::TestCase
     assert_instance_of Committee::Drivers::OpenAPI2, DriverTestClass.new.driver
   end
 
+  test '#driver returns the OpenAPI 3 driver' do
+    Rails.application.config.schema_conformist.driver = :open_api_3
+    assert_instance_of Committee::Drivers::OpenAPI3, DriverTestClass.new.driver
+  end
+
   test '#driver raises an error when the specified driver is unknown' do
     Rails.application.config.schema_conformist.driver = :unknown_driver
     assert_raises SchemaConformist::Error do
