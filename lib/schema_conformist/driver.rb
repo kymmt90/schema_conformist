@@ -2,20 +2,8 @@ module SchemaConformist
   module Driver
     include Committee::Test::Methods
 
-    def committee_schema
-      @committee_schema ||= driver.parse(schema_hash)
-    end
-
     def committee_options
       { schema: committee_schema }
-    end
-
-    def schema_hash(schema_data = File.read(schema_path))
-      if %w(.yaml .yml).include?(File.extname(schema_path))
-        YAML.safe_load(schema_data)
-      else
-        JSON.parse(schema_data)
-      end
     end
 
     def schema_path
@@ -35,29 +23,27 @@ module SchemaConformist
       end
     end
 
-    def driver
-      case driver_name
-      when :hyper_schema
-        Committee::Drivers::HyperSchema.new
-      when :open_api_2
-        Committee::Drivers::OpenAPI2.new
-      when :open_api_3
-        Committee::Drivers::OpenAPI3.new
-      else
-        raise SchemaConformist::Error.new("#{driver_name} is unknown driver")
-      end
-    end
-
-    def driver_name
-      Rails.application.config.schema_conformist.driver
-    end
-
     def request_object
       request
     end
 
     def response_data
       [response.status, response.headers, response.body]
+    end
+
+    private
+
+    def driver_name
+      Rails.application.config.schema_conformist.driver
+    end
+
+    def committee_schema
+      @commitee_schema = case driver_name
+                         when :hyper_schema, :open_api_2, :open_api_3
+                           Committee::Drivers::load_from_file(schema_path)
+                         else
+                           nil
+                         end
     end
   end
 end
