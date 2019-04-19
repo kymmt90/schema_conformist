@@ -2,9 +2,8 @@ require 'test_helper'
 
 class ProductsControllerWithOpenAPI3Test < ActionDispatch::IntegrationTest
   setup do
-    Rails.application.config.schema_conformist.driver = :open_api_3
     Rails.application.config.schema_conformist.ignored_api_paths = []
-    Rails.application.config.schema_conformist.schema_path = nil
+    Rails.application.config.schema_conformist.schema_path = Rails.root.join('public', 'openapi.json')
   end
 
   test 'GET /products' do
