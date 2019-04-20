@@ -2,7 +2,6 @@ require 'test_helper'
 
 class ProductsControllerWithOpenAPI2YamlTest < ActionDispatch::IntegrationTest
   setup do
-    Rails.application.config.schema_conformist.driver = :open_api_2
     Rails.application.config.schema_conformist.ignored_api_paths = []
     Rails.application.config.schema_conformist.schema_path = Rails.root.join('public', 'swagger.yaml')
   end
