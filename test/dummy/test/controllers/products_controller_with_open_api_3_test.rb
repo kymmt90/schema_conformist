@@ -1,9 +1,9 @@
 require 'test_helper'
 
-class ProductsControllerWithOpenAPI2Test < ActionDispatch::IntegrationTest
+class ProductsControllerWithOpenAPI3Test < ActionDispatch::IntegrationTest
   setup do
     Rails.application.config.schema_conformist.ignored_api_paths = []
-    Rails.application.config.schema_conformist.schema_path = Rails.root.join('public', 'swagger.json')
+    Rails.application.config.schema_conformist.schema_path = Rails.root.join('public', 'openapi.json')
   end
 
   test 'GET /products' do

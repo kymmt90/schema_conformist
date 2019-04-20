@@ -2,9 +2,8 @@ require 'test_helper'
 
 class ProductsControllerWithHyperSchemaTest < ActionDispatch::IntegrationTest
   setup do
-    Rails.application.config.schema_conformist.driver = :hyper_schema
     Rails.application.config.schema_conformist.ignored_api_paths = []
-    Rails.application.config.schema_conformist.schema_path = nil
+    Rails.application.config.schema_conformist.schema_path = Rails.root.join('public', 'schema.json')
   end
 
   test 'GET /products' do
@@ -33,7 +32,12 @@ class ProductsControllerWithHyperSchemaTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "GET /private" do
+  test "GET /private with String ignored_api_paths pattern" do
+    Rails.application.config.schema_conformist.ignored_api_paths << '/private'
+    get private_path
+  end
+
+  test "GET /private with Regexp ignored_api_paths pattern" do
     Rails.application.config.schema_conformist.ignored_api_paths << /private/
     get private_path
   end
