@@ -32,7 +32,12 @@ class ProductsControllerWithOpenAPI3YamlTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "GET /private" do
+  test "GET /private with String ignored_api_paths pattern" do
+    Rails.application.config.schema_conformist.ignored_api_paths << '/private'
+    get private_path
+  end
+
+  test "GET /private with Regexp ignored_api_paths pattern" do
     Rails.application.config.schema_conformist.ignored_api_paths << /private/
     get private_path
   end
