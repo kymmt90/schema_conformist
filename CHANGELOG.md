@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased](https://github.com/kymmt90/schema_conformist/compare/v0.2.2...HEAD)
 
+### Added
+
+- [Support OpenAPI 3](https://github.com/kymmt90/schema_conformist/pull/15)
+
 ## [0.2.2](https://github.com/kymmt90/schema_conformist/compare/v0.2.1...v.0.2.2) - 2019-03-27
 
 ### Fixed
