@@ -1,6 +1,6 @@
 # SchemaConformist
 
-[![Gem Version](https://badge.fury.io/rb/schema_conformist.svg)](https://badge.fury.io/rb/schema_conformist) [![Build Status](https://travis-ci.org/kymmt90/schema_conformist.svg?branch=master)](https://travis-ci.org/kymmt90/schema_conformist)
+[![Gem Version](https://badge.fury.io/rb/schema_conformist.svg)](https://badge.fury.io/rb/schema_conformist) [![Build Status](https://github.com/kymmt90/schema_conformist/workflows/build/badge.svg)](https://github.com/kymmt90/schema_conformist/actions?workflow=build)
 
 > An automatic JSON response validator for testing in Rails
 
