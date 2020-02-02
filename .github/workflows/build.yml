@@ -9,7 +9,7 @@ jobs:
       matrix:
         ruby: ['2.4.x', '2.5.x', '2.6.x']
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v2
     - name: Set up Ruby
       uses: actions/setup-ruby@v1
       with:
