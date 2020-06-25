@@ -43,8 +43,16 @@ class ProductsControllerWithHyperSchemaTest < ActionDispatch::IntegrationTest
   end
 
   test "GET /private without ignored API paths" do
+    assert_raises Committee::InvalidRequest do
+      get private_path
+    end
+  end
+
+  test "GET /private without ignored API paths with old assert behavior" do
+    Rails.application.config.schema_conformist.committee.old_assert_behavior = true
     assert_raises Committee::InvalidResponse do
       get private_path
     end
+    Rails.application.config.schema_conformist.committee.old_assert_behavior = false
   end
 end
