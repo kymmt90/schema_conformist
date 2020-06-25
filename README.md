@@ -4,9 +4,9 @@
 
 > An automatic JSON response validator for testing in Rails
 
-SchemaConformist is an automatic JSON response validator for your API testing in Rails.
+SchemaConformist is an automatic JSON response and/or request validator for your API testing in Rails.
 
-This library automatically validates that JSON responses are conformant with the schema. The schema can be described as one of [JSON Hyper Schema](http://json-schema.org/latest/json-schema-hypermedia.html), [OpenAPI 2.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md) and OpenAPI 3 (currently [3.0.2](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md) is latest).
+This library automatically validates that JSON responses and/or requests are conformant with the schema. The schema can be described as one of [JSON Hyper Schema](http://json-schema.org/latest/json-schema-hypermedia.html), [OpenAPI 2.0](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md) and OpenAPI 3 (currently [3.0.2](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md) is latest).
 
 This library uses [Committee](https://github.com/interagent/committee) to validate JSONs.
 
@@ -44,6 +44,8 @@ Configuration options are following:
   - Required. The path where the schema is placed
 - `schema_conformist.ignored_api_paths`
   - Optional. The array of API paths not to validate. Each path can be described in String literal (used for prefix search) or regular expression.
+- `schema_conformist.committee.old_assert_behavior`
+  - Optional. If true then skip validating request parameters. Default is false.
 
 ## Contributing
 
