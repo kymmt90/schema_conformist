@@ -34,7 +34,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Product"
+                "$ref": "#/components/schemas/ProductRequestParameter"
               }
             }
           }
@@ -86,7 +86,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/Product"
+                "$ref": "#/components/schemas/ProductRequestParameter"
               }
             }
           }
@@ -116,6 +116,20 @@
   },
   "components": {
     "schemas": {
+      "ProductRequestParameter":{
+        "type": "object",
+        "required": [
+          "product"
+        ],
+        "properties": {
+          "product": {
+            "type": "object",
+            "properties": {
+              "$ref": "#/components/schemas/Product"
+            }
+          }
+        }
+      },
       "Product": {
         "type": "object",
         "required": [

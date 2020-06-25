@@ -30,7 +30,7 @@ paths:
         description: ''
         required: true
         schema:
-          "$ref": "#/definitions/Product"
+          "$ref": "#/definitions/ProductRequestParameter"
       responses:
         '201':
           description: ''
@@ -63,7 +63,7 @@ paths:
         description: ''
         required: true
         schema:
-          "$ref": "#/definitions/Product"
+          "$ref": "#/definitions/ProductRequestParameter"
       responses:
         '200':
           description: ''
@@ -81,6 +81,16 @@ paths:
         '204':
           description: ''
 definitions:
+  ProductRequestParameter:
+    type: object
+    required:
+    - product
+    properties:
+      product:
+        type: object
+        properties:
+          schema:
+            $ref: '#/definitions/Product'
   Product:
     type: object
     required:

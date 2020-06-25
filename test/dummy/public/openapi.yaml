@@ -22,7 +22,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Product'
+              $ref: '#/components/schemas/ProductRequestParameter'
       responses:
         '201':
           description: ''
@@ -53,7 +53,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Product'
+              $ref: '#/components/schemas/ProductRequestParameter'
       responses:
         '200':
           description: ''
@@ -68,6 +68,15 @@ paths:
           description: ''
 components:
   schemas:
+    ProductRequestParameter:
+      type: object
+      required:
+        - product
+      properties:
+        product:
+          type: object
+          properties:
+            $ref: '#/components/schemas/Product'
     Product:
       type: object
       required:

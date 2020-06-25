@@ -40,7 +40,7 @@
             "description": "",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Product"
+              "$ref": "#/definitions/ProductRequestParameter"
             }
           }
         ],
@@ -91,7 +91,7 @@
             "description": "",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Product"
+              "$ref": "#/definitions/ProductRequestParameter"
             }
           }
         ],
@@ -124,6 +124,22 @@
     }
   },
   "definitions": {
+    "ProductRequestParameter": {
+      "type": "object",
+      "required": [
+        "product"
+      ],
+      "properties": {
+        "product": {
+          "type": "object",
+          "properties": {
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          }
+        }
+      }
+    },
     "Product": {
       "type": "object",
       "required": [
