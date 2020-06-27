@@ -123,10 +123,7 @@
         ],
         "properties": {
           "product": {
-            "type": "object",
-            "properties": {
-              "$ref": "#/components/schemas/Product"
-            }
+            "$ref": "#/components/schemas/Product"
           }
         }
       },

@@ -87,10 +87,7 @@ definitions:
     - product
     properties:
       product:
-        type: object
-        properties:
-          schema:
-            $ref: '#/definitions/Product'
+        $ref: '#/definitions/Product'
   Product:
     type: object
     required:
