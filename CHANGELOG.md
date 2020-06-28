@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## 0.4.0 - 2020-06-28
+
+### Updated
+
+- [Bump committee to 4.0.0](https://github.com/kymmt90/schema_conformist/pull/18)
+
 ## 0.3.0 - 2019-04-22
 
 ### Added
