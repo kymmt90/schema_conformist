@@ -112,6 +112,31 @@
           }
         }
       }
+    },
+    "/invalid_products": {
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductRequestParameter"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -146,8 +171,19 @@
           "stock_count": {
             "type": "integer",
             "nullable": true
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
           }
-        }
+        },
+        "additionalProperties": false
       }
     }
   }

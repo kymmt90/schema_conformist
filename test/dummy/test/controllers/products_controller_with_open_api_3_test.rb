@@ -20,6 +20,18 @@ class ProductsControllerWithOpenAPI3Test < ActionDispatch::IntegrationTest
     end
   end
 
+  test "POST /invalid_products with unexpected request" do
+    assert_raises Committee::InvalidRequest do
+      post invalid_products_url, params: { product: { invalid: 'invalid', name: 'new product', price: 100, stock_count: 100 } }, as: :json
+    end
+  end
+
+  test "POST /invalid_products with unexpected response" do
+    assert_raises Committee::InvalidResponse do
+      post invalid_products_url, params: { product: { name: 'new product', price: 100, stock_count: 100 } }, as: :json
+    end
+  end
+
   test "PUT /products/:id" do
     product = products(:one)
     put product_url(product), params: { product: { name: product.name, price: product.price, stock_count: 100 } }, as: :json
@@ -46,13 +58,5 @@ class ProductsControllerWithOpenAPI3Test < ActionDispatch::IntegrationTest
     assert_raises Committee::InvalidRequest do
       get private_path
     end
-  end
-
-  test "GET /private without ignored API paths with old assert behavior" do
-    Rails.application.config.schema_conformist.committee.old_assert_behavior = true
-    assert_raises Committee::InvalidResponse do
-      get private_path
-    end
-    Rails.application.config.schema_conformist.committee.old_assert_behavior = false
   end
 end

@@ -26,7 +26,7 @@
             "null"
           ]
         },
-        "created": {
+        "created_at": {
           "format": "date-time",
           "type": "string"
         },
@@ -106,13 +106,42 @@
           "href": "/products/{(%23%2Fdefinitions%2Fproduct%2Fdefinitions%2Fname)}",
           "method": "DELETE",
           "rel": "destroy"
+        },
+        {
+          "description": "create a product",
+          "href": "/invalid_products",
+          "method": "POST",
+          "rel": "create",
+          "schema": {
+            "properties": {
+              "product": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "$ref": "#/definitions/product/definitions/name"
+                  },
+                  "price": {
+                    "$ref": "#/definitions/product/definitions/price"
+                  },
+                  "stock_count": {
+                    "$ref": "#/definitions/product/definitions/stock_count"
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          },
+          "targetSchema": {
+            "$ref": "#/definitions/product"
+          }
         }
       ],
       "properties": {
         "id": {
           "$ref": "#/definitions/product/definitions/id"
         }
-      }
+      },
+      "required": ["name", "price", "stock_count"]
     }
   }
 }

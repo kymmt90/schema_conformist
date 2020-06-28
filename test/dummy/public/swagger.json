@@ -121,6 +121,30 @@
           }
         }
       }
+    },
+    "/invalid_products": {
+      "post": {
+        "description": "",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ProductRequestParameter"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Product"
+            }
+          }
+        }
+      }
     }
   },
   "definitions": {
