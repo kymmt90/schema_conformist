@@ -2,10 +2,9 @@ module SchemaConformist
   module ProcessWithAssertion
     include SchemaConformist::Driver
 
-    def process(*args)
-      super *args
+    def process(method, path, **kwargs)
+      super
 
-      path = args[1]
       return if ignored?(path)
 
       assert_schema_conform
