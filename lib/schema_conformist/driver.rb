@@ -3,7 +3,7 @@ module SchemaConformist
     include Committee::Test::Methods
 
     def committee_options
-      { schema: committee_schema }
+      { schema: committee_schema }.merge(schema_conformist_committee_options)
     end
 
     def request_object
@@ -22,6 +22,10 @@ module SchemaConformist
 
     def schema_path
       Rails.application.config.schema_conformist.schema_path
+    end
+
+    def schema_conformist_committee_options
+      Rails.application.config.schema_conformist.committee
     end
   end
 end

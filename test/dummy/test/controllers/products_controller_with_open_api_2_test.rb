@@ -43,7 +43,7 @@ class ProductsControllerWithOpenAPI2Test < ActionDispatch::IntegrationTest
   end
 
   test "GET /private without ignored API paths" do
-    assert_raises Committee::InvalidResponse do
+    assert_raises Committee::InvalidRequest do
       get private_path
     end
   end

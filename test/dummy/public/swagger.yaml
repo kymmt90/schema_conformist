@@ -30,7 +30,7 @@ paths:
         description: ''
         required: true
         schema:
-          "$ref": "#/definitions/Product"
+          "$ref": "#/definitions/ProductRequestParameter"
       responses:
         '201':
           description: ''
@@ -63,7 +63,7 @@ paths:
         description: ''
         required: true
         schema:
-          "$ref": "#/definitions/Product"
+          "$ref": "#/definitions/ProductRequestParameter"
       responses:
         '200':
           description: ''
@@ -80,7 +80,29 @@ paths:
       responses:
         '204':
           description: ''
+  "/invalid_products":
+    post:
+      description: ''
+      parameters:
+      - in: body
+        name: body
+        description: ''
+        required: true
+        schema:
+          "$ref": "#/definitions/ProductRequestParameter"
+      responses:
+        '201':
+          description: ''
+          schema:
+            "$ref": "#/definitions/Product"
 definitions:
+  ProductRequestParameter:
+    type: object
+    required:
+    - product
+    properties:
+      product:
+        $ref: '#/definitions/Product'
   Product:
     type: object
     required:
@@ -97,3 +119,14 @@ definitions:
         type:
         - integer
         - 'null'
+      created_at:
+        type: 
+        - string
+        - 'null'
+        format: date-time
+      updated_at:
+        type: 
+        - string
+        - 'null'
+        format: date-time
+    additionalProperties: false
