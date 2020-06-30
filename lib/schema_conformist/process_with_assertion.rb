@@ -2,17 +2,18 @@ module SchemaConformist
   module ProcessWithAssertion
     include SchemaConformist::Driver
 
-    def process(*args)
-      super *args
+    def process(method, path, **kwargs)
+      super
 
-      path = args[1]
-      return if ignored?(path)
+      return if schema_conformist_ignored_path?(path)
 
       assert_schema_conform
     end
 
-    def ignored?(path)
-      ignored_api_paths.any? do |pattern|
+    private
+
+    def schema_conformist_ignored_path?(path)
+      schema_conformist_ignored_api_paths.any? do |pattern|
         case pattern
         when String
           path.start_with?(pattern)
@@ -22,7 +23,7 @@ module SchemaConformist
       end
     end
 
-    def ignored_api_paths
+    def schema_conformist_ignored_api_paths
       Rails.application.config.schema_conformist.ignored_api_paths
     end
   end
