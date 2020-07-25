@@ -1,4 +1,4 @@
-$:.push File.expand_path('lib', __dir__)
+$LOAD_PATH.push File.expand_path('lib', __dir__)
 
 require 'schema_conformist/version'
 
