@@ -16,25 +16,60 @@ class ProductsControllerWithOpenAPI3Test < ActionDispatch::IntegrationTest
 
   test 'POST /products' do
     assert_difference('Product.count') do
-      post products_url, params: { product: { name: 'new product', price: 100, stock_count: 100 } }, as: :json
+      params = {
+        product: {
+          name: 'new product',
+          price: 100,
+          stock_count: 100
+        }
+      }
+
+      post products_url, params: params, as: :json
     end
   end
 
   test 'POST /invalid_products with unexpected request' do
     assert_raises Committee::InvalidRequest do
-      post invalid_products_url, params: { product: { invalid: 'invalid', name: 'new product', price: 100, stock_count: 100 } }, as: :json
+      params = {
+        product: {
+          invalid: 'invalid',
+          name: 'new product',
+          price: 100,
+          stock_count: 100
+        }
+      }
+
+      post invalid_products_url, params: params, as: :json
     end
   end
 
   test 'POST /invalid_products with unexpected response' do
     assert_raises Committee::InvalidResponse do
-      post invalid_products_url, params: { product: { name: 'new product', price: 100, stock_count: 100 } }, as: :json
+      params = {
+        product: {
+          name: 'new product',
+          price: 100,
+          stock_count: 100
+        }
+      }
+
+      post invalid_products_url, params: params, as: :json
     end
   end
 
   test 'PUT /products/:id' do
     product = products(:one)
-    put product_url(product), params: { product: { name: product.name, price: product.price, stock_count: 100 } }, as: :json
+
+    params = {
+      product: {
+        name: product.name,
+        price: product.price,
+        stock_count: 100
+      }
+    }
+
+    put product_url(product), params: params, as: :json
+
     assert_response 200
   end
 
