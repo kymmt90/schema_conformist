@@ -1,0 +1,11 @@
+AllCops:
+  Exclude:
+    - 'bin/*'
+    - 'test/dummy/*'
+    - 'test/dummy/app/**/*'
+    - 'test/dummy/bin/**/*'
+    - 'test/dummy/config/**/*'
+    - 'test/dummy/db/**/*'
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
