@@ -17,7 +17,7 @@ module SchemaConformist
     private
 
     def committee_schema
-      @commitee_schema ||= Committee::Drivers::load_from_file(schema_path)
+      @commitee_schema ||= Committee::Drivers.load_from_file(schema_path)
     end
 
     def schema_path
