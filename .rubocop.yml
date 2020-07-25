@@ -1,0 +1,17 @@
+AllCops:
+  Exclude:
+    - 'bin/*'
+    - 'test/dummy/*'
+    - 'test/dummy/app/**/*'
+    - 'test/dummy/bin/**/*'
+    - 'test/dummy/config/**/*'
+    - 'test/dummy/db/**/*'
+
+Layout/LineLength:
+  Max: 120
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
