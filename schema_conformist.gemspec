@@ -3,6 +3,7 @@ $LOAD_PATH.push File.expand_path('lib', __dir__)
 require 'schema_conformist/version'
 
 Gem::Specification.new do |s|
+  s.required_ruby_version = Gem::Requirement.new('>= 2.5.0')
   s.name        = 'schema_conformist'
   s.version     = SchemaConformist::VERSION
   s.authors     = ['Kohei Yamamoto']
