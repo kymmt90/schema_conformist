@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 $: << File.expand_path(File.expand_path("../../test", __FILE__))
 
+ENV['DEFAULT_TEST_EXCLUDE'] = 'test/system/**/*_test.rb'
+
 require "bundler/setup"
 require "rails/plugin/test"
