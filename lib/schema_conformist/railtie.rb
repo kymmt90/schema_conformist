@@ -7,6 +7,7 @@ module SchemaConformist
       config.schema_conformist.committee = ActiveSupport::OrderedOptions.new
       config.schema_conformist.committee.old_assert_behavior = false
       config.schema_conformist.committee.query_hash_key = 'committee.query_hash'
+      config.schema_conformist.committee.parse_response_by_content_type = false
     end
   end
 end
