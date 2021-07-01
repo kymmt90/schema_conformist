@@ -3,6 +3,7 @@ $LOAD_PATH.push File.expand_path('lib', __dir__)
 require 'schema_conformist/version'
 
 Gem::Specification.new do |s|
+  s.required_ruby_version = Gem::Requirement.new('>= 2.5.0')
   s.name        = 'schema_conformist'
   s.version     = SchemaConformist::VERSION
   s.authors     = ['Kohei Yamamoto']
@@ -14,7 +15,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
 
-  s.add_dependency 'committee', '~> 4.0.0'
+  s.add_dependency 'committee', '~> 4.3.0'
   s.add_dependency 'rails'
 
   s.add_development_dependency 'sqlite3'

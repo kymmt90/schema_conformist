@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## 0.5.0 - 2021-06-30
+### Changed
+
+- [Drop Ruby 2.4.x which has support ended and add 3.0.x](https://github.com/kymmt90/schema_conformist/pull/22)
+  - Drop Ruby 2.4.x and add Ruby 3.0.x in CI
+- [Bump committee to 4.3.0](https://github.com/kymmt90/schema_conformist/pull/23)
+  - This change requires Committee 4.3.0
+
 ## 0.4.0 - 2020-06-30
 
 ### Changed
