@@ -7,7 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
-## 0.5.0 - 2021-06-30
+## 0.5.0 - 2021-07-01
+
 ### Changed
 
 - [Drop Ruby 2.4.x which has support ended and add 3.0.x](https://github.com/kymmt90/schema_conformist/pull/22)
